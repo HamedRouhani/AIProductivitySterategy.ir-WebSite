@@ -12,6 +12,13 @@
                 <a href="/contact" style="color: white; text-decoration: none; margin: 0 10px; opacity: 0.8;">تماس با ما</a>
                 <a href="/privacy" style="color: white; text-decoration: none; margin: 0 10px; opacity: 0.8;">حریم خصوصی</a>
                 <a href="/terms" style="color: white; text-decoration: none; margin: 0 10px; opacity: 0.8;">شرایط استفاده</a>
+                <!-- ✅ لینک گیت‌هاب در فوتر (بخش لینک‌ها) -->
+                <a href="https://github.com/HamedRouhani/AIProductivitySterategy.ir-WebSite" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   style="color: white; text-decoration: none; margin: 0 10px; opacity: 0.8;">
+                    <i class="fab fa-github" aria-hidden="true"></i> گیت‌هاب
+                </a>
             </div>
             
             <p>&copy; <?= date('Y') ?> <a href="/" style="color: #667eea; text-decoration: none;">AI Productivity Strategy</a>. تمامی حقوق محفوظ است.</p>
@@ -31,6 +38,14 @@
                 </a>
                 <a href="https://youtube.com/yourchannel" target="_blank" rel="noopener noreferrer" aria-label="یوتیوب">
                     <i class="fab fa-youtube" aria-hidden="true"></i>
+                </a>
+                <!-- ✅ لینک گیت‌هاب در بخش شبکه‌های اجتماعی (با آیکون) -->
+                <a href="https://github.com/HamedRouhani/AIProductivitySterategy.ir-WebSite" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   aria-label="مشاهده کد منبع در گیت‌هاب" 
+                   title="مشاهده کد منبع در گیت‌هاب">
+                    <i class="fab fa-github" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
