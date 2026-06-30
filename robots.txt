@@ -1,0 +1,68 @@
+# robots.txt
+# قرار دهید در ریشه وبسایت
+
+User-agent: *
+Allow: /
+
+# ========================================
+# مسیرهای مجاز
+# ========================================
+Allow: /$
+Allow: /about$
+Allow: /contact$
+Allow: /post/
+Allow: /category/
+Allow: /assets/
+Allow: /sitemap.xml
+Allow: /feed.xml
+
+# ========================================
+# مسیرهای ممنوع
+# ========================================
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /vendor/
+Disallow: /login.php
+Disallow: /logout.php
+Disallow: /register.php
+Disallow: /verify.php
+Disallow: /admin_messages.php
+Disallow: /my_messages.php
+Disallow: /edit_post.php
+Disallow: /delete_post.php
+Disallow: /api/
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /backup/
+Disallow: /config/
+
+# ========================================
+# زمان خزش
+# ========================================
+Crawl-delay: 2
+
+# ========================================
+# نقشه سایت
+# ========================================
+Sitemap: https://aiproductivitystrategy.ir/sitemap.xml
+
+# ========================================
+# ربات‌های خاص
+# ========================================
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: Bingbot
+Crawl-delay: 1
+
+User-agent: Yandex
+Crawl-delay: 2
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
