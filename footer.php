@@ -10,8 +10,6 @@
             <div class="footer-links" style="margin-bottom: 1rem;">
                 <a href="/about" style="color: white; text-decoration: none; margin: 0 10px; opacity: 0.8;">درباره ما</a>
                 <a href="/contact" style="color: white; text-decoration: none; margin: 0 10px; opacity: 0.8;">تماس با ما</a>
-                <a href="/privacy" style="color: white; text-decoration: none; margin: 0 10px; opacity: 0.8;">حریم خصوصی</a>
-                <a href="/terms" style="color: white; text-decoration: none; margin: 0 10px; opacity: 0.8;">شرایط استفاده</a>
                 <!-- ✅ لینک گیت‌هاب در فوتر (بخش لینک‌ها) -->
                 <a href="https://github.com/HamedRouhani/AIProductivitySterategy.ir-WebSite" 
                    target="_blank" 

@@ -282,14 +282,61 @@ $authors = [
         font-size: 1.2rem;
     }
     
+    /* ======================================== */
+    /* دکمه گیت‌هاب (اضافه شده) */
+    /* ======================================== */
+    .github-section {
+        text-align: center;
+        margin: 2.5rem 0 3rem 0;
+    }
+    
+    .github-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: #24292e;
+        color: white !important;
+        padding: 14px 35px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.05rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 2px solid transparent;
+        box-shadow: 0 5px 15px rgba(36, 41, 46, 0.2);
+    }
+    
+    .github-btn:hover {
+        background: #2d3748;
+        transform: translateY(-4px);
+        box-shadow: 0 15px 35px rgba(36, 41, 46, 0.3);
+        border-color: #667eea;
+        color: white !important;
+    }
+    
+    .github-btn i {
+        font-size: 1.6rem;
+    }
+    
+    .github-btn .arrow-icon {
+        transition: transform 0.3s ease;
+        font-size: 0.9rem;
+    }
+    
+    .github-btn:hover .arrow-icon {
+        transform: translateX(-5px);
+    }
+    
+    /* ======================================== */
     /* بخش درباره سایت */
+    /* ======================================== */
     .about-site {
         background: linear-gradient(135deg, #667eea, #764ba2);
         border-radius: 25px;
         padding: 3rem;
         color: white;
         text-align: center;
-        margin-top: 2rem;
+        margin-top: 1rem;
         box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
     }
     
@@ -375,6 +422,15 @@ $authors = [
         .about-site i {
             font-size: 2.5rem;
         }
+        
+        .github-btn {
+            padding: 12px 25px;
+            font-size: 0.95rem;
+        }
+        
+        .github-btn i {
+            font-size: 1.3rem;
+        }
     }
     
     @media (max-width: 480px) {
@@ -412,6 +468,20 @@ $authors = [
         
         .about-site h3 {
             font-size: 1.2rem;
+        }
+        
+        .about-site p {
+            font-size: 0.85rem;
+        }
+        
+        .github-btn {
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            gap: 8px;
+        }
+        
+        .github-btn i {
+            font-size: 1.1rem;
         }
     }
 </style>
@@ -484,6 +554,20 @@ $authors = [
             
         </div>
     </section>
+    
+    <!-- ======================================== -->
+    <!-- ✅ بخش دکمه گیت‌هاب (اضافه شده) -->
+    <!-- ======================================== -->
+    <div class="github-section">
+        <a href="https://github.com/HamedRouhani/AIProductivitySterategy.ir-WebSite" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="github-btn">
+            <i class="fab fa-github" aria-hidden="true"></i>
+            <span>مشاهده کد منبع پروژه در گیت‌هاب</span>
+            <i class="fas fa-arrow-left arrow-icon" aria-hidden="true"></i>
+        </a>
+    </div>
     
     <!-- بخش درباره سایت -->
     <section class="about-site" itemscope itemtype="https://schema.org/AboutPage">
