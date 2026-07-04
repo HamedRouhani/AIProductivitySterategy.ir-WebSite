@@ -29,6 +29,16 @@ if (!isset($canonical_url)) {
     $canonical_url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 }
 
+if (isset($pdo) && $pdo instanceof PDO) {
+    // اگر کاربر ادمین نیست، بازدید او ثبت شود
+    if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+        if (file_exists(__DIR__ . '/visit_tracker.php')) {
+            require_once __DIR__ . '/visit_tracker.php';
+            // تابع logVisit به صورت خودکار در فایل tracker اجرا می‌شود
+        }
+    }
+}
+
 $og_image = 'https://' . $_SERVER['HTTP_HOST'] . '/assets/images/og-image.jpg';
 $site_name = 'AI Productivity Strategy';
 $theme_color = '#667eea';

@@ -525,6 +525,9 @@ include 'header.php';
             <button class="nav-btn" onclick="showSection('posts-section', this)">
                 <i class="fas fa-pen-nib"></i> ویرایش نوشته‌ها
             </button>
+            <a href="admin_stats.php" class="nav-btn" style="background: linear-gradient(135deg, #f39c12, #e67e22); text-decoration: none;">
+                <i class="fas fa-chart-line"></i> آمار بازدید
+            </a>
         </div>
     </div>
     
