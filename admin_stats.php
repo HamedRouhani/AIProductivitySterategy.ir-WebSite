@@ -19,6 +19,9 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once 'includes/db.php';
 require_once 'includes/auth.php';
 
+// بارگذاری تابع تاریخ شمسی
+require_once 'includes/jalali.php';
+
 // تنظیمات صفحه
 $page_title = 'آمار بازدید | پنل مدیریت | AI Productivity Strategy';
 $meta_description = 'آمار بازدیدهای سایت به صورت روزانه، هفتگی، ماهانه، سه‌ماهه، شش‌ماهه و سالانه';
@@ -378,6 +381,49 @@ include 'header.php';
     .admin-message i {
         margin-left: 10px;
     }
+
+    .export-section {
+        text-align: center;
+        margin: 20px 0;
+    }
+    
+    .export-btn {
+        display: inline-block;
+        padding: 12px 30px;
+        border-radius: 10px;
+        font-weight: 600;
+        transition: all 0.3s;
+        text-decoration: none;
+        font-family: 'Vazirmatn', 'Tahoma', sans-serif !important;
+    }
+    
+    .export-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        color: white;
+    }
+    
+    .export-excel {
+        background: linear-gradient(135deg, #28a745, #20c997);
+        color: white;
+        box-shadow: 0 2px 10px rgba(40, 167, 69, 0.3);
+    }
+    
+    .export-excel:hover {
+        background: linear-gradient(135deg, #218838, #1aa179);
+        color: white;
+    }
+    
+    .export-full {
+        background: linear-gradient(135deg, #17a2b8, #0dcaf0);
+        color: white;
+        box-shadow: 0 2px 10px rgba(23, 162, 184, 0.3);
+    }
+    
+    .export-full:hover {
+        background: linear-gradient(135deg, #138496, #0aa3c4);
+        color: white;
+    }
     
     @media (max-width: 768px) {
         .stats-grid {
@@ -395,6 +441,13 @@ include 'header.php';
         }
         .chart-wrapper {
             height: 300px;
+        }
+        .export-section {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .export-btn {
+            text-align: center;
         }
     }
     
@@ -474,6 +527,12 @@ include 'header.php';
             <i class="fas fa-calendar"></i> سالانه
         </a>
     </div>
+
+    <div class="export-section">
+        <a href="export_visits.php?period=<?php echo $period; ?>" class="export-btn export-excel">
+            <i class="fas fa-file-excel"></i> خروجی اکسل
+        </a>
+    </div>
     
     <?php if ($tableExists && !empty($stats)): ?>
         <!-- نمودار -->
@@ -503,8 +562,28 @@ include 'header.php';
                             $labelKey = $keys[0];
                             $count = $row['count'];
                             $percent = $totalVisits > 0 ? round(($count / $totalVisits) * 100, 1) : 0;
+                            
+                            // تبدیل تاریخ به شمسی
+                            $label = $row[$labelKey];
+                            if ($period == 'daily' && strpos($label, '-') !== false) {
+                                // تبدیل تاریخ میلادی به شمسی
+                                $label = toJalali($label);
+                            } elseif ($period == 'weekly' && strpos($label, 'week') === false) {
+                                // برای هفتگی، تاریخ شروع را تبدیل کنید
+                                if (isset($row['start_date'])) {
+                                    $label = 'هفته منتهی به ' . toJalali($row['start_date']);
+                                }
+                            } elseif ($period == 'monthly' && strpos($label, '-') !== false) {
+                                // تبدیل ماه میلادی به شمسی
+                                $parts = explode('-', $label);
+                                if (count($parts) == 2) {
+                                    $jalali = gregorian_to_jalali($parts[0], $parts[1], 1);
+                                    $label = $jalali[0] . '/' . str_pad($jalali[1], 2, '0', STR_PAD_LEFT);
+                                }
+                            }
+                            
                             echo "<tr>
-                                    <td>" . htmlspecialchars($row[$labelKey]) . "</td>
+                                    <td>" . htmlspecialchars($label) . "</td>
                                     <td>" . number_format($count) . "</td>
                                     <td>" . number_format($percent, 1) . "%</td>
                                 </tr>";
