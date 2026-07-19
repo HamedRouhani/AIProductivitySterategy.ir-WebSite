@@ -483,6 +483,12 @@ $theme_color = '#667eea';
                         تماس با ما
                     </a>
                 </li>
+                <li role="none">
+                    <a href="/software" role="menuitem">
+                        <i class="fas fa-toolbox" aria-hidden="true"></i>
+                        نرم‌افزارها
+                    </a>
+                </li>
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
                         <li role="none">
